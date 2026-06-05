@@ -95,6 +95,31 @@ while 1:
                     1,(0,255,255),
                     3
                 )
+            
+            if fingers==4:
+                brightness_distance=math.hypot(
+                    x-x1,
+                    y-y1
+
+                )
+                brightness_percent=min(
+                    100,
+                    max(
+                        0,
+                        int(brightness_distance/3)
+                    )
+                )
+                sbc.set_brightness(brightness_percent)
+                cv2.putText(
+                    frame,
+                    f"Brightness:{brightness_percent}%",
+                    (50,200),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    1,
+                    (255,255,0),
+                    3
+
+                )
 
 
             
